@@ -9,11 +9,7 @@ const truncateString = (value) => {
   return value;
 };
 
-const BodySection = () => {
-  const products = localStorage.getItem("carts");
-
-  const parsedProducts = products ? JSON.parse(products || []) : [];
-
+const BodySection = ({ setItem, removeItem, basket }) => {
   const { isPending, error, data } = useQuery({
     queryKey: ["productData"],
     queryFn: () =>
@@ -50,15 +46,10 @@ const BodySection = () => {
             </Tooltip>
             <h1>{item.category}</h1>
           </div>
-          {parsedProducts.includes(item.id) ? (
+          {basket.includes(item.id) ? (
             <button
               onClick={() => {
-                const newProducts = parsedProducts.filter(
-                  (product) => product !== item.id,
-                );
-
-                localStorage.setItem("carts", JSON.stringify(newProducts));
-                window.location.reload();
+                removeItem(item.id);
               }}
               className=" cursor-pointer hover:opacity-100 opacity-65 text-center py-2 bg-red-100 text-red-500 px-5 w-full"
             >
@@ -67,10 +58,7 @@ const BodySection = () => {
           ) : (
             <button
               onClick={() => {
-                const newProducts = [...parsedProducts, item.id];
-
-                localStorage.setItem("carts", JSON.stringify(newProducts));
-                window.location.reload();
+                setItem(item.id);
               }}
               className=" cursor-pointer hover:opacity-100 opacity-65 text-center py-2 bg-green-100 text-green-500 px-5 w-full"
             >
