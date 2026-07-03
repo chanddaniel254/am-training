@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+/*
+  Brand theme — reusable across every page.
+  Use as utilities: bg-primary, text-primary, border-primary, ring-primary,
+  hover:bg-primary-hover, bg-primary-soft, etc. Opacity works too: ring-primary/30.
+*/
+@theme {
+  /* PRIMARY — main brand + primary actions (buttons, links, focus) */
+  --color-primary: #4f46e5; /* indigo-600 */
+  --color-primary-hover: #4338ca; /* indigo-700 */
+  --color-primary-soft: #eef2ff; /* indigo-50  — tints / subtle backgrounds */
+
+  /* SECONDARY — dark neutral for headings, text, dark surfaces */
+  --color-secondary: #0f172a; /* slate-900 */
+  --color-secondary-hover: #1e293b; /* slate-800 */
+  --color-secondary-soft: #f1f5f9; /* slate-100 — subtle surfaces / borders */
+
+  /* TERTIARY — accent for prices, deals, highlights */
+  --color-tertiary: #f59e0b; /* amber-500 */
+  --color-tertiary-hover: #d97706; /* amber-600 */
+  --color-tertiary-soft: #fffbeb; /* amber-50 */
+}
