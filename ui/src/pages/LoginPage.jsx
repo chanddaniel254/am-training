@@ -86,7 +86,7 @@ const LoginPage = ({ onSuccess }) => {
               <FaShoppingBag className="h-5 w-5" />
             </span>
             <span className="text-lg font-bold tracking-tight text-secondary">
-              AM Training
+              AM Trainings
             </span>
           </div>
 
