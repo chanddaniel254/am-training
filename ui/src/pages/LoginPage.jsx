@@ -1,67 +1,9 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
+import { FaEye, FaEyeSlash, FaShoppingBag, FaCheck } from "react-icons/fa";
 
 const correctUsername = "daniel254";
 const correctPassword = "123";
-
-const BagIcon = (props) => (
-  <svg viewBox="0 0 24 24" fill="none" {...props}>
-    <path
-      d="M6 8h12l-1 12H7L6 8Z"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M9 8V6a3 3 0 0 1 6 0v2"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-    />
-  </svg>
-);
-
-const EyeIcon = (props) => (
-  <svg viewBox="0 0 24 24" fill="none" {...props}>
-    <path
-      d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Z"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      strokeLinejoin="round"
-    />
-    <circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="1.8" />
-  </svg>
-);
-
-const EyeOffIcon = (props) => (
-  <svg viewBox="0 0 24 24" fill="none" {...props}>
-    <path
-      d="M4 4l16 16M9.9 5.2A9.4 9.4 0 0 1 12 5c6 0 9.5 7 9.5 7a15.6 15.6 0 0 1-2.8 3.6M6.3 7.8A15.6 15.6 0 0 0 2.5 12S6 19 12 19a9 9 0 0 0 3.4-.65"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M9.9 10a3 3 0 0 0 4.2 4.2"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-    />
-  </svg>
-);
-
-const CheckIcon = (props) => (
-  <svg viewBox="0 0 24 24" fill="none" {...props}>
-    <path
-      d="M5 12l4 4 10-10"
-      stroke="currentColor"
-      strokeWidth="2.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
 
 const LoginPage = ({ onSuccess }) => {
   const [username, setUsername] = useState("");
@@ -102,7 +44,7 @@ const LoginPage = ({ onSuccess }) => {
 
           <div className="relative flex items-center gap-2">
             <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/15 backdrop-blur">
-              <BagIcon className="h-5 w-5" />
+              <FaShoppingBag className="h-5 w-5" />
             </span>
             <span className="text-lg font-bold tracking-tight">
               AM Training
@@ -123,7 +65,7 @@ const LoginPage = ({ onSuccess }) => {
               ].map((item) => (
                 <li key={item} className="flex items-center gap-2">
                   <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white/20">
-                    <CheckIcon className="h-3 w-3" />
+                    <FaCheck className="h-3 w-3" />
                   </span>
                   {item}
                 </li>
@@ -141,10 +83,10 @@ const LoginPage = ({ onSuccess }) => {
           {/* mobile brand mark */}
           <div className="mb-6 flex items-center gap-2 md:hidden">
             <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-white">
-              <BagIcon className="h-5 w-5" />
+              <FaShoppingBag className="h-5 w-5" />
             </span>
             <span className="text-lg font-bold tracking-tight text-secondary">
-              AM Training
+              AM Trainings
             </span>
           </div>
 
@@ -203,9 +145,9 @@ const LoginPage = ({ onSuccess }) => {
                   className="absolute right-2 top-1/2 -translate-y-1/2 rounded-md p-1.5 text-slate-400 transition hover:text-secondary"
                 >
                   {showPassword ? (
-                    <EyeOffIcon className="h-5 w-5" />
+                    <FaEyeSlash className="h-5 w-5" />
                   ) : (
-                    <EyeIcon className="h-5 w-5" />
+                    <FaEye className="h-5 w-5" />
                   )}
                 </button>
               </div>
