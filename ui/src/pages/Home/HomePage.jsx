@@ -14,7 +14,19 @@ const HomePage = () => {
 
   return (
     <div className=" h-screen overflow-hidden">
-      <HeaderSection basket={basket} />
+      <HeaderSection
+        updateQty={(id, value) => {
+          const newRec = [...basket];
+          const index = newRec.findIndex((f) => f.id === id);
+
+          if (index === -1) return;
+
+          newRec[index].qty = value + (newRec[index].qty ?? 0);
+
+          setBasket(newRec);
+        }}
+        basket={basket}
+      />
       <BodySection
         basket={basket}
         setItem={(value) => {
@@ -22,7 +34,7 @@ const HomePage = () => {
           localStorage.setItem("cart", JSON.stringify([...basket, value]));
         }}
         removeItem={(value) => {
-          const newProducts = basket.filter((item) => item !== value);
+          const newProducts = basket.filter((item) => item.id !== value);
           setBasket(newProducts);
           localStorage.setItem("cart", JSON.stringify(newProducts));
         }}

@@ -46,7 +46,8 @@ const BodySection = ({ setItem, removeItem, basket }) => {
             </Tooltip>
             <h1>{item.category}</h1>
           </div>
-          {basket.includes(item.id) ? (
+
+          {basket.find((f) => f.id === item.id) ? (
             <button
               onClick={() => {
                 removeItem(item.id);
@@ -58,7 +59,7 @@ const BodySection = ({ setItem, removeItem, basket }) => {
           ) : (
             <button
               onClick={() => {
-                setItem(item.id);
+                setItem(item);
               }}
               className=" cursor-pointer hover:opacity-100 opacity-65 text-center py-2 bg-green-100 text-green-500 px-5 w-full"
             >
